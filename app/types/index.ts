@@ -1,4 +1,5 @@
 import { IconType } from "react-icons";
+import {FieldValues, UseFormRegister, FieldErrors} from 'react-hook-form'
 
 export interface ContainerProps {
     children: React.ReactNode
@@ -36,4 +37,21 @@ export interface RegisterModalStore {
     isOpen: boolean;
     onOpen: () => void;
     onClose: () => void;
+}
+
+export interface HeadingProps {
+    title: string;
+    subTitle?: string;
+    center?: boolean;
+}
+
+export interface InputProps {
+    id: string;
+    label: string;
+    type?: string;
+    disabled?: boolean;
+    formatPrice?: boolean;
+    required?: boolean;
+    register: UseFormRegister<FieldValues>;
+    errors: FieldErrors;
 }
