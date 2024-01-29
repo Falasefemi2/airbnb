@@ -52,6 +52,6 @@ export interface InputProps {
     disabled?: boolean;
     formatPrice?: boolean;
     required?: boolean;
-    register: UseFormRegister<FieldValues>;
-    errors: FieldErrors;
+    register: UseFormRegister<FieldValues>,
+    errors: FieldErrors
 }
