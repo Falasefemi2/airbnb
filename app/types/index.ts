@@ -39,6 +39,12 @@ export interface RegisterModalStore {
     onClose: () => void;
 }
 
+export interface LoginModalStore {
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+}
+
 export interface HeadingProps {
     title: string;
     subTitle?: string;
