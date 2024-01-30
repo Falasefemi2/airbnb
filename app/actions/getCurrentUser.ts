@@ -2,11 +2,12 @@ import { getServerSession } from "next-auth/next";
 
 // import { authOptions } froom
 import prisma from "@/app/libs/prismadb";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+// import authOptions from "../libs/authOptions";
+// import { authOptions } from "../api/auth/[...nextauth]/route";
 // import { authOptions } from "../option";
 
 export async function getSession() {
-  return await getServerSession(authOptions);
+  return await getServerSession();
 }
 
 export default async function getCurrentUser() {
