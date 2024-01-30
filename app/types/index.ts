@@ -1,5 +1,6 @@
 import { IconType } from "react-icons";
 import {FieldValues, UseFormRegister, FieldErrors} from 'react-hook-form'
+import { User } from "@prisma/client";
 
 export interface ContainerProps {
     children: React.ReactNode
@@ -39,6 +40,12 @@ export interface RegisterModalStore {
     onClose: () => void;
 }
 
+export interface LoginModalStore {
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+}
+
 export interface HeadingProps {
     title: string;
     subTitle?: string;
@@ -54,4 +61,13 @@ export interface InputProps {
     required?: boolean;
     register: UseFormRegister<FieldValues>,
     errors: FieldErrors
+}
+
+export type SafeUser = Omit<
+User,
+"createdAt" | "updatedAt" | "emailVerified"
+> & {
+    createdAt: string;
+    updatedAt: string;
+    emailVerified: string | null;    
 }
