@@ -46,6 +46,12 @@ export interface LoginModalStore {
     onClose: () => void;
 }
 
+export interface RentModalStore {
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+}
+
 export interface HeadingProps {
     title: string;
     subTitle?: string;
