@@ -9,6 +9,7 @@ import { BsSnow } from "react-icons/bs";
 import { IoDiamond } from "react-icons/io5";
 import CategoryBox from "./CategoryBox";
 
+import { Suspense } from "react"
 
 
 import { usePathname, useSearchParams } from "next/navigation";
@@ -105,6 +106,7 @@ const Categories = () => {
   }
 
     return ( 
+      <Suspense>
     <Container>
         <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
             {categories.map((item) => (
@@ -117,6 +119,7 @@ const Categories = () => {
             ))}
         </div>
     </Container> 
+      </Suspense>
     );
 }
  
