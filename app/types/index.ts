@@ -19,7 +19,7 @@ export interface ModalProps {
     body?: React.ReactElement;
     footer?: React.ReactElement;
     actionLabel: string;
-    disabled: boolean;
+    disabled?: boolean;
     secondaryAction?: () => void;
     secondaryLabel?: string;
     secondaryActionLabel?: string;
@@ -41,6 +41,12 @@ export interface RegisterModalStore {
 }
 
 export interface LoginModalStore {
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+}
+
+export interface RentModalStore {
     isOpen: boolean;
     onOpen: () => void;
     onClose: () => void;
