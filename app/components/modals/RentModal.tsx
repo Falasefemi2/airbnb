@@ -43,6 +43,8 @@ const RentModal = () => {
     const category = watch('category');
     const location = watch('location');
     const guestCount = watch('guestCount');
+    const roomCount = watch('roomCount');
+    const bathroomCount = watch('bathroomCount');
 
     const Map = useMemo(() => dynamic(() => import('../Map'), {
         ssr: false
@@ -135,14 +137,14 @@ const RentModal = () => {
                 <Counter
                     title="Rooms"
                     subTitle="How many rooms do you have?"
-                    value={guestCount}
+                    value={roomCount}
                     onChange={(value) => setCustomValue('guestCount', value)}
                 />
                 <hr />
                 <Counter
                     title="Bathrooms"
                     subTitle="How many bathrooms do you have??"
-                    value={guestCount}
+                    value={bathroomCount}
                     onChange={(value) => setCustomValue('guestCount', value)}
                 />
             </div>
