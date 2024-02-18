@@ -22,7 +22,7 @@ const ImageUpload:React.FC<ImageUploadProps> = ({onChange, value}) => {
     return (  
         <CldUploadWidget 
         onUpload={handleUpload}
-        uploadPreset=""
+        uploadPreset="yyymx22b"
         options={{
             maxFiles: 1
         }}
@@ -57,7 +57,3 @@ export default ImageUpload;
 
 
 
-
-// api key 131318533347581
-// api secret wLX7p630O2-OYJJKvw9kQnZ7QJU
-// api env CLOUDINARY_URL=cloudinary://131318533347581:wLX7p630O2-OYJJKvw9kQnZ7QJU@dblqs7sgv
