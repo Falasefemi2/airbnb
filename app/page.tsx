@@ -22,7 +22,7 @@ export default async function Home() {
           {listings.map((listing: any) => {
             return (
               <ListingCard 
-              currentUser={currentUser
+              currentUser={currentUser}
               key={listing.id}
               data={listing}
               />
