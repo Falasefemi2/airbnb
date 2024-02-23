@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import Image from "next/image";
 import {format} from 'date-fns';
-
 import useCountries from "@/app/hooks/useCountries";
+
 import { SafeUser } from "@/app/types";
 
 interface ListingCardProp {
