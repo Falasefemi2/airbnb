@@ -9,6 +9,7 @@ import {format} from 'date-fns';
 import useCountries from "@/app/hooks/useCountries";
 
 import { SafeUser } from "@/app/types";
+import HeartButton from "../HeartButton";
 
 interface ListingCardProp {
     data: Listing;
@@ -63,8 +64,16 @@ const ListingCard:React.FC<ListingCardProp> = ({data, reservation, onAction, dis
                     src={data.imageSrc}
                     className="object-cover h-full w-full group-hover:scale-110 transition"
                     />
+                    <div className="absolute  top-3 right-3">
+                        <HeartButton 
+                        listingId={data.id}
+                        currentUser={currentUser}
+                        />
+                    </div>
                 </div>
-
+                <div className="font-semibold text-lg">
+                    {location?.region}, {location?.label}
+                </div>
             </div>
         </div>
      );
