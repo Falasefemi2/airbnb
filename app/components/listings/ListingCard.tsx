@@ -10,6 +10,7 @@ import useCountries from "@/app/hooks/useCountries";
 
 import { SafeUser } from "@/app/types";
 import HeartButton from "../HeartButton";
+import Button from "../Button";
 
 interface ListingCardProp {
     data: Listing;
@@ -74,6 +75,25 @@ const ListingCard:React.FC<ListingCardProp> = ({data, reservation, onAction, dis
                 <div className="font-semibold text-lg">
                     {location?.region}, {location?.label}
                 </div>
+                <div className="font-light text-neutral-500">
+                    {reservationData || data.category}
+                </div>
+                <div className="flex flex-row items-center gap-1">
+                    <div className="font-semibold">
+                        $ {price}
+                    </div>
+                    {!reservation && (
+                        <div className="font-light">night</div>
+                    )}
+                </div>
+                {onAction && actionLabel && (
+                    <Button 
+                    disabled={disabled}
+                    small
+                    label={actionLabel}
+                    onClick={handleCnacel}
+                    />
+                )}
             </div>
         </div>
      );
