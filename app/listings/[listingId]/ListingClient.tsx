@@ -6,12 +6,13 @@ import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import { categories } from "@/app/components/navbar/Categories";
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { SafeUser, safeListing } from "@/app/types";
-import { Reservation } from "@prisma/client";
+import { SafeUser, safeListing, SafeReservation } from "@/app/types";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import ListingReservation from "@/app/components/listings/ListingReservation";
+import { Range } from "react-date-range";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -20,7 +21,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-    reservations?: Reservation[];
+    reservations?: SafeReservation[];
     listing: safeListing & {
         user: SafeUser
     };
@@ -47,7 +48,7 @@ const ListingClient: React.FC<ListingClientProps> = ({ listing, currentUser, res
 
     const [isLoading, setIsLoading] = useState(false);
     const [totalPrice, setTotalPrice] = useState(listing.price);
-    const [dateRange, setDateRange] = useState(initialDateRange);
+    const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
     const onCreateReservation = useCallback(() => {
         if (!currentUser) {
@@ -118,7 +119,15 @@ const ListingClient: React.FC<ListingClientProps> = ({ listing, currentUser, res
                             locationValue={listing.locationValue}
                         />
                         <div className="order-first mb-10 md:order-last md:col-span-3">
-
+                            <ListingReservation
+                                price={listing.price}
+                                totalPrice={totalPrice}
+                                onChangeDate={(value) => setDateRange(value)}
+                                dateRange={dateRange}
+                                onSubmit={onCreateReservation}
+                                disabled={isLoading}
+                                disabledDates={disabledDates}
+                            />
                         </div>
                     </div>
                 </div>
