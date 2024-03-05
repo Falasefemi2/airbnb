@@ -7,7 +7,7 @@ import Button from "./Button";
 interface EmptyState {
     title?: string;
     subTitle?: string;
-    showReset: boolean;
+    showReset?: boolean;
 }
 
 const EmptyState:React.FC<EmptyState> = ({title= 'No exact matches', subTitle = 'Try changing or removing from your filters', showReset}) => {
