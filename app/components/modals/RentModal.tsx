@@ -82,17 +82,17 @@ const RentModal = () => {
         setIsloading(true);
 
         axios.post('/api/listings', data)
-        .then(() => {
-            toast.success('Listing Created!');
-            router.refresh();
-            reset();
-            setStep(STEPS.CATEGORY);
-            rentModal.onClose();
-        })
-        .catch(() => {
-            toast.error('Something went wrong');
-            setIsloading(false);
-        })
+            .then(() => {
+                toast.success('Listing Created!');
+                router.refresh();
+                reset();
+                setStep(STEPS.CATEGORY);
+                rentModal.onClose();
+            })
+            .catch(() => {
+                toast.error('Something went wrong');
+                setIsloading(false);
+            })
     }
 
     const actionLabel = useMemo(() => {
@@ -183,13 +183,13 @@ const RentModal = () => {
     if (step === STEPS.IMAGES) {
         bodyContent = (
             <div className="flex flex-col gap-8">
-                <Heading 
-                title="Add a photo of your place"
-                subTitle="Show guests what your place looks like!"
+                <Heading
+                    title="Add a photo of your place"
+                    subTitle="Show guests what your place looks like!"
                 />
                 <ImageUpload
-                value={imageSrc}
-                onChange={(value) => setCustomValue('imageSrc', value)}
+                    value={imageSrc}
+                    onChange={(value) => setCustomValue('imageSrc', value)}
                 />
             </div>
         )
@@ -198,47 +198,47 @@ const RentModal = () => {
     if (step === STEPS.DESCRIPTION) {
         bodyContent = (
             <div className="flex flex-col gap-8">
-                <Heading 
-                title="How would you describe your place?"
-                subTitle="Short and sweet works best!"
+                <Heading
+                    title="How would you describe your place?"
+                    subTitle="Short and sweet works best!"
                 />
-                <Input 
-                id="title"
-                label="Title"
-                disabled={isLoading}
-                register={register}
-                errors={errors}
-                required
+                <Input
+                    id="title"
+                    label="Title"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
                 />
                 <hr />
-                <Input 
-                id="description"
-                label="Description"
-                disabled={isLoading}
-                register={register}
-                errors={errors}
-                required
+                <Input
+                    id="description"
+                    label="Description"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
                 />
             </div>
         )
     }
 
-    if (step ===  STEPS.PRICE)  {
+    if (step === STEPS.PRICE) {
         bodyContent = (
             <div className="flex flex-col gap-8">
-                <Heading 
-                title="Now, set your price"
-                subTitle="How much do you charge per night?"
+                <Heading
+                    title="Now, set your price"
+                    subTitle="How much do you charge per night?"
                 />
-                <Input 
-                id="price"
-                label="Price"
-                formatPrice
-                type="number"
-                disabled={isLoading}
-                register={register}
-                errors={errors}
-                required
+                <Input
+                    id="price"
+                    label="Price"
+                    formatPrice
+                    type="number"
+                    disabled={isLoading}
+                    register={register}
+                    errors={errors}
+                    required
                 />
             </div>
         )
