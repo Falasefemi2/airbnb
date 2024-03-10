@@ -22,8 +22,7 @@ export const metadata: Metadata = {
   description: "Airbnb Clone youtube",
 };
 
-export const dynamic = 'auto'
-// 'auto' | 'force-dynamic' | 'error' | 'force-static'
+
 
 
 export default async function RootLayout({
