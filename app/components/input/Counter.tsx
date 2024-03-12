@@ -10,7 +10,7 @@ interface CounterProps {
     onChange: (value: number) => void;
 }
 
-const Counter: React.FC<CounterProps> = ({title, subTitle, value, onChange}) => {
+const Counter: React.FC<CounterProps> = ({ title, subTitle, value, onChange }) => {
     const onAdd = useCallback(() => {
         onChange(value + 1)
     }, [onChange, value])
@@ -23,7 +23,7 @@ const Counter: React.FC<CounterProps> = ({title, subTitle, value, onChange}) => 
         onChange(value - 1);
     }, [value, onChange]);
 
-    return ( 
+    return (
         <div className="flex flex-row items-center justify-between">
             <div className="flex flex-col">
                 <div className="font-medium">
@@ -45,7 +45,7 @@ const Counter: React.FC<CounterProps> = ({title, subTitle, value, onChange}) => 
                 </div>
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default Counter;
